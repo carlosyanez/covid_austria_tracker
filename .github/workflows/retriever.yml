@@ -41,6 +41,7 @@ jobs:
         with:
           cache-version: 2
           extra-packages: |
+            curl
             dplyr
             tidyr
             readr

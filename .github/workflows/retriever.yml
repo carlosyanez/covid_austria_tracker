@@ -31,13 +31,13 @@ jobs:
       #install ubuntu packages
       - name: install ssl
         run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev curl
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@master
       - name: setup-r
-        uses: r-lib/actions/setup-r@v1
+        uses: r-lib/actions/setup-r@master
         with:
           r-version: '4.1.1'
       - name: required packages  
-        uses: r-lib/actions/setup-r-dependencies@v1
+        uses: r-lib/actions/setup-r-dependencies@master
         with:
           cache-version: 2
           extra-packages: |

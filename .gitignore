@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+retrieved_data.rds
+temp/*
+retrieved/*
+retrieved_data.rds

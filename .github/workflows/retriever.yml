@@ -25,6 +25,7 @@ jobs:
         apisecretkey: ${{ secrets.APISECRETKEY}}
         access_token: ${{ secrets.ACCESS_TOKEN}}
         access_token_secret: ${{ secrets.ACCESS_TOKEN_SECRET}}
+        RENV_PATHS_ROOT: ~/.local/share/renv
     #
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -36,18 +37,19 @@ jobs:
         uses: r-lib/actions/setup-r@master
         with:
           r-version: '4.1.1'
-      - name: required packages  
+      - name: Cache packages
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.RENV_PATHS_ROOT }}
+          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+             ${{ runner.os }}-renv-
+
+      - name: Restore packages
+        shell: Rscript {0}
         run: |
-          Rscript -e "install.packages('dplyr')"
-          Rscript -e "install.packages('tidyr')"
-          Rscript -e "install.packages('readr')"
-          Rscript -e "install.packages('purrr')"
-          Rscript -e "install.packages('tibble')"
-          Rscript -e "install.packages('stringr')"
-          Rscript -e "install.packages('forcats')"
-          Rscript -e "install.packages('magrittr')"
-          Rscript -e "install.packages('lubridate')"
-          Rscript -e "install.packages('fs')"
+          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+          renv::restore()
       - name: allow TLS 1.0
         run: export OPENSSL_CONF=.openssl_allow_tls1.0.cnf
       # execute Rscript

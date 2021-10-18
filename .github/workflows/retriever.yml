@@ -40,8 +40,6 @@ jobs:
           cache-version: 2
           extra-packages: |
             tidyverse
-      - name: install tidyverse
-        run: Rscript -e "install.packages('tidyverse)"
       #install ssl
       - name: install ssl
         run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev

@@ -28,15 +28,13 @@ jobs:
         RENV_PATHS_ROOT: ~/.local/share/renv
     #
     steps:
-      - name: setup r
-      - uses: actions/checkout@master
-      - uses: r-lib/actions/setup-r@v1
-      - uses: r-lib/actions/setup-r-dependencies@v1
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: setup-r
+        uses: r-lib/actions/setup-r@v1
         with:
-           r-version: '4.1.1'
-           cache-version: 2
-           extra-packages: |
-                  tidyverse
+          r-version: '4.1.1'
       #install ssl
       - run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev
       # execute Rscript

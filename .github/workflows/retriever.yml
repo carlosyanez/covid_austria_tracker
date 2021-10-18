@@ -37,16 +37,17 @@ jobs:
         with:
           r-version: '4.1.1'
       - name: required packages  
-        run: Rscript -e "install.packages('dplyr')"
-        run: Rscript -e "install.packages('tidyr')"
-        run: Rscript -e "install.packages('readr')"
-        run: Rscript -e "install.packages('purrr')"
-        run: Rscript -e "install.packages('tibble')"
-        run: Rscript -e "install.packages('stringr')"
-        run: Rscript -e "install.packages('forcats')"
-        run: Rscript -e "install.packages('magrittr')"
-        run: Rscript -e "install.packages('lubridate')"
-        run: Rscript -e "install.packages('fs')"
+        run: |
+          Rscript -e "install.packages('dplyr')"
+          Rscript -e "install.packages('tidyr')"
+          Rscript -e "install.packages('readr')"
+          Rscript -e "install.packages('purrr')"
+          Rscript -e "install.packages('tibble')"
+          Rscript -e "install.packages('stringr')"
+          Rscript -e "install.packages('forcats')"
+          Rscript -e "install.packages('magrittr')"
+          Rscript -e "install.packages('lubridate')"
+          Rscript -e "install.packages('fs')"
 
       # execute Rscript
       - name: run retriever

@@ -58,9 +58,9 @@ jobs:
         run: Rscript retrieve/data_retriever.R
       #commit file           
       - name: Commit files
-        run: |
-          git config --local user.email "carlos.yanez.s@gmail.com"
-          git config --local user.name "carlosyanez"
+        run: | 
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"d --all
           git add --all
           git commit -am "updated"
           git push 

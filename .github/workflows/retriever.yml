@@ -30,7 +30,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       #install ubuntu packages
       - name: install ssl
-        run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev libcurl4-openssl-dev libxml2-dev libxslt-dev libssl-dev curl
+        run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev libcurl4-openssl-dev libxml2-dev libxslt-dev libssl-dev wget curl
       - uses: actions/checkout@master
       - name: setup-r
         uses: r-lib/actions/setup-r@master

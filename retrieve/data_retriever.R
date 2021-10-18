@@ -40,7 +40,7 @@ state_translation <- tribble(~Bundesland,~State,~state_colour,
      
 
 
-download.file("https://covid19-dashboard.ages.at/data/data.zip",temp)
+download.file("https://covid19-dashboard.ages.at/data/data.zip",temp,method="wget")
 unzip(temp,paste(extract_filename,".csv",sep=""),exdir=file_path)
 if(file.exists(paste("./data","_",Sys.Date(),".zip",sep=""))) file.remove(paste("./data","_",Sys.Date(),".zip",sep=""))
 file.rename(temp,

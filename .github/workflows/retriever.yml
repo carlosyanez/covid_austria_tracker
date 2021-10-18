@@ -35,6 +35,7 @@ jobs:
         uses: r-lib/actions/setup-r@v1
         with:
           r-version: '4.1.1'
+      - run: Rscript -e "install.packages('tidyverse)"
       #install ssl
       - run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev
       # execute Rscript

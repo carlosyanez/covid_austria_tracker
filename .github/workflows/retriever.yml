@@ -42,6 +42,7 @@ jobs:
           cache-version: 2
           extra-packages: |
             curl
+            pkgcache
             dplyr
             tidyr
             readr

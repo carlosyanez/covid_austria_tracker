@@ -34,9 +34,9 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
            r-version: '4.1.1'
-          cache-version: 2
-          extra-packages: |
-              tidyverse
+           cache-version: 2
+           extra-packages: |
+                  tidyverse
       #install ssl
       - run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev
       # execute Rscript

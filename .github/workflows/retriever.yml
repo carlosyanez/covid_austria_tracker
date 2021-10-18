@@ -35,13 +35,13 @@ jobs:
         with:
           r-version: '4.1.1'
       - name: install tidyverse
-      - run: Rscript -e "install.packages('tidyverse)"
+        run: Rscript -e "install.packages('tidyverse)"
       #install ssl
       - name: install ssl
-      - run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev
+        run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev
       # execute Rscript
       - name: run retriever
-      - run: Rscript retrieve/data_retriever.R
+        run: Rscript retrieve/data_retriever.R
       #commit file           
       - name: Commit files
         run: |

@@ -49,7 +49,7 @@ jobs:
           Rscript -e "install.packages('lubridate')"
           Rscript -e "install.packages('fs')"
       - name: allow TLS 1.0
-        run: export OPENSSL_CONF=~/.openssl_allow_tls1.0.cnf
+        run: export OPENSSL_CONF=.openssl_allow_tls1.0.cnf
       # execute Rscript
       - name: run retriever
         run: Rscript retrieve/data_retriever.R

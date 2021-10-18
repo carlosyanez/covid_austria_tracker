@@ -37,22 +37,7 @@ jobs:
         with:
           r-version: '4.1.1'
       - name: required packages  
-        uses: r-lib/actions/setup-r-dependencies@master
-        with:
-          cache-version: 2
-          extra-packages: |
-            curl
-            pkgcache
-            dplyr
-            tidyr
-            readr
-            purrr
-            tibble
-            stringr
-            forcats
-            magrittr
-            lubridate
-            fs
+        run: Rscript -e "install.packages('dplyr',source='no')"
       # execute Rscript
       - name: run retriever
         run: Rscript retrieve/data_retriever.R

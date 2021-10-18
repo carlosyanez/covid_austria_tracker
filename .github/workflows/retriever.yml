@@ -25,7 +25,6 @@ jobs:
         apisecretkey: ${{ secrets.APISECRETKEY}}
         access_token: ${{ secrets.ACCESS_TOKEN}}
         access_token_secret: ${{ secrets.ACCESS_TOKEN_SECRET}}
-        RENV_PATHS_ROOT: ~/.local/share/renv
     #
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -35,10 +34,13 @@ jobs:
         uses: r-lib/actions/setup-r@v1
         with:
           r-version: '4.1.1'
+      - name: install tidyverse
       - run: Rscript -e "install.packages('tidyverse)"
       #install ssl
+      - name: install ssl
       - run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev
       # execute Rscript
+      - name: run retriever
       - run: Rscript retrieve/data_retriever.R
       #commit file           
       - name: Commit files

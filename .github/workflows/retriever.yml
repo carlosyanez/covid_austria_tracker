@@ -34,12 +34,21 @@ jobs:
         uses: r-lib/actions/setup-r@v1
         with:
           r-version: '4.1.1'
-      - name: tidyverse  
+      - name: required packages  
         uses: r-lib/actions/setup-r-dependencies@v1
         with:
           cache-version: 2
           extra-packages: |
-            tidyverse
+            dplyr
+            tidyr
+            readr
+            purrr
+            tibble
+            stringr
+            forcats
+            magrittr
+            lubridate
+            fs
       #install ssl
       - name: install ssl
         run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev

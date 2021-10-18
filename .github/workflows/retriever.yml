@@ -32,9 +32,10 @@ jobs:
 
       - name: setup-r
         uses: r-lib/actions/setup-r@v1
-        uses: r-lib/actions/setup-r-dependencies@v1
         with:
           r-version: '4.1.1'
+        uses: r-lib/actions/setup-r-dependencies@v1
+        with:
           cache-version: 2
           extra-packages: |
             tidyverse

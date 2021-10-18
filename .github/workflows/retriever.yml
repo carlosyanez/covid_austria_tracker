@@ -34,24 +34,14 @@ jobs:
       - name: setup-r
         uses: r-lib/actions/setup-r@v1
         with:
-          r-version: '4.0.2'
-      # install renv package
-      - run: R -e 'install.packages("renv")'
-      # set up cache
-      - name: Cache packages
-        uses: actions/cache@v1
-        with:
-           path: ${{ env.RENV_PATHS_ROOT }}
-           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-           restore-keys: |-
-              ${{ runner.os }}-renv-
+          r-version: '4.1.1'
+      # install tidyverse
+      - run: R -e 'install.packages("tidyverse")'
+      #install ssl
       - run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev
-      # install c++ dependencies and install necessary packages
-      - run: R -e 'renv::restore()'
       # execute Rscript
       - run: Rscript retrieve/data_retriever.R
-      
-              
+      #commit file           
       - name: Commit files
         run: |
           git config --local user.email "actions@github.com"

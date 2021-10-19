@@ -1,5 +1,7 @@
 # Covid Tracker - Austria
 
+[![retrieve_data](https://github.com/carlosyanez/covid_austria_tracker/actions/workflows/retriever.yml/badge.svg)](https://github.com/carlosyanez/covid_austria_tracker/actions/workflows/retriever.yml)
+
 Tracking active and new cases in Austria, divided by federal state(province)
 
 ## Retrieving the data.

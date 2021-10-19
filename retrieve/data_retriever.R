@@ -23,7 +23,6 @@ extract_filename <- c("CovidFaelle_Timeline",
 
 
 
-#brewer.pal(11,"RdYlBu")
 state_translation <- tribble(~Bundesland,~State,~state_colour,
                              "Österreich","Austria","#313695",
                              "Austria","Austria","#313695",
@@ -42,9 +41,6 @@ state_translation <- tribble(~Bundesland,~State,~state_colour,
 
 download.file("https://covid19-dashboard.ages.at/data/data.zip",temp,method="libcurl")
 unzip(temp,paste(extract_filename,".csv",sep=""),exdir=file_path)
-#if(file.exists(paste("./data","_",Sys.Date(),".zip",sep=""))) file.remove(paste("./data","_",Sys.Date(),".zip",sep=""))
-#file.rename(temp,
-#         paste("./data","_",Sys.Date(),".zip",sep=""))
 
 data <-list()
 

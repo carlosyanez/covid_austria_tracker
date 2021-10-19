@@ -142,13 +142,16 @@ general_plotter <- function(retrieved_data,chart_type,y_values,filter_value,y_la
          y=y_label,
          caption=plot_caption) +
     theme(legend.position = "right",
+          
           plot.title = element_text(size=16,family="Roboto"),
+          plot.background = element_rect(fill="white"),
           axis.title.x = element_text(size = 12,family="Roboto"),
           axis.text.x = element_text(angle = 0, hjust = 1,size = 12,family="Roboto"),
           axis.title.y = element_text(size = 12,family="Roboto"),
           axis.text.y = element_text(size = 12,family="Roboto"),
           strip.text.x = element_text(size = 14,family="Roboto"),
           strip.text.y = element_text(size = 14, angle = 90,family="Roboto"),
+          legend.background = element_rect(fill="white"),
           legend.title=element_text(size=10,family="Roboto"),
           legend.text=element_text(size=10,family="Roboto")) +
           scale_y_continuous(labels=function(x) format(x, big.mark = " ", scientific = FALSE))

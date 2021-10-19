@@ -6,3 +6,5 @@ retrieved_data.rds
 temp/*
 retrieved/*
 retrieved_data.rds
+RShiny/google_analytics.html
+RShiny/rsconnect/shinyapps.io/carlosyanezs/Covid_in_Austria.dcf

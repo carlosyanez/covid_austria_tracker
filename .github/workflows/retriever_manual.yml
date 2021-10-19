@@ -1,0 +1,56 @@
+# This is a basic workflow that only runs on schedule
+
+name: retrieve_data_manual
+
+on:
+ workflow_dispatch:
+#Inputs the workflow accepts.
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job
+  run_thingy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # retrieve secrets from github
+    env:
+        apikey: ${{ secrets.APIKEY}}
+        apisecretkey: ${{ secrets.APISECRETKEY}}
+        access_token: ${{ secrets.ACCESS_TOKEN}}
+        access_token_secret: ${{ secrets.ACCESS_TOKEN_SECRET}}
+        RENV_PATHS_ROOT: ~/.local/share/renv
+        OPENSSL_CONF: retrieve/.openssl_allow_tls1.0.cnf
+    #
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      #install ubuntu packages
+      - name: install ssl
+        run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev libcurl4-openssl-dev libxml2-dev libxslt-dev libssl-dev wget curl
+      - uses: actions/checkout@master
+      - name: setup-r
+        uses: r-lib/actions/setup-r@master
+        with:
+          r-version: '4.1.1'
+      - name: Cache packages
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.RENV_PATHS_ROOT }}
+          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+             ${{ runner.os }}-renv-
+      - name: Restore packages
+        shell: Rscript {0}
+        run: |
+          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+          renv::restore()
+      # execute Rscript
+      - name: run retriever
+        run: Rscript retrieve/data_retriever.R
+      #commit file           
+      - name: Commit files
+        run: | 
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add --all
+          git commit -am "updated"
+          git push 

@@ -4,7 +4,7 @@ name: retrieve_data
 
 on:
   schedule:
-    - cron: '15 12 * * *'
+    - cron: '16 12 * * *'
 
 #on:
 # workflow_dispatch:

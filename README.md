@@ -11,4 +11,4 @@ Data retrieved by R script run on Github Actions
 
 ## Visualisation
 Data visualised on a R Shiny dashboard, built with [{shinydashboard}](https://rstudio.github.io/shinydashboard/). Interactive plots created with [{ggiraph}](https://davidgohel.github.io/ggiraph/).
-Charts available at [here](https://carlosyanezs.shinyapps.io/Covid_in_Austria/)
+Charts available [here](https://carlosyanezs.shinyapps.io/Covid_in_Austria/).

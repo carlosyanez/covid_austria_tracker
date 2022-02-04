@@ -141,11 +141,11 @@ a<- a %>% left_join(sevendays1 , by=c("State","Date")) %>%
 
 #### Download R factor data
 
-r_factor <-read_csv2("https://www.ages.at/fileadmin/AGES2015/Wissen-Aktuell/COVID19/R_eff_bundesland.csv",
+r_factor <-read_csv2("https://wissenaktuell.ages.at/fileadmin/AGES2015/Wissen-Aktuell/COVID19/R_eff_bundesland.csv",
                      col_types="ccccc")
 
   
-r_at <- read_csv2("https://www.ages.at/fileadmin/AGES2015/Wissen-Aktuell/COVID19/R_eff.csv",col_types="cccc")
+r_at <- read_csv2("https://wissenaktuell.ages.at/fileadmin/AGES2015/Wissen-Aktuell/COVID19/R_eff.csv",col_types="cccc")
 r_at$Bundesland <- "Österreich"
 
 r_factor_all <- rbind(r_factor,r_at) %>%
